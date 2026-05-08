@@ -1,18 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-  hitelesitesKotelező();
+document.addEventListener('DOMContentLoaded', function() {
+  hitelesitesKotelezo();
 
-  document.getElementById('uj-esemeny-urlap')?.addEventListener('submit', async (e) => {
+  var urlap = document.getElementById('uj-esemeny-urlap');
+  if (!urlap) return;
+
+  urlap.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const hibaBox = document.getElementById('hiba-uzenet');
-    const sikerBox = document.getElementById('siker-uzenet');
-    const kuldjGomb = e.target.querySelector('button[type=submit]');
+    var hibaBox = document.getElementById('hiba-uzenet');
+    var sikerBox = document.getElementById('siker-uzenet');
+    var kuldjGomb = e.target.querySelector('button[type=submit]');
     hibaBox.style.display = 'none';
     sikerBox.style.display = 'none';
-    kuldjGomb.textContent = 'Létrehozás...';
+    kuldjGomb.textContent = 'Letrehozas...';
     kuldjGomb.disabled = true;
 
     try {
-      const adatok = {
+      var adatok = {
         cim: document.getElementById('cim').value,
         leiras: document.getElementById('leiras').value,
         esemeny_datuma: document.getElementById('esemeny_datuma').value.replace('T', ' ') + ':00',
@@ -26,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       sikerBox.style.display = 'block';
-      sikerBox.textContent = '✓ Esemény sikeresen létrehozva! Jóváhagyásra vár.';
+      sikerBox.textContent = 'Esemeny sikeresen letrehozva! Jovahagyasra var.';
       e.target.reset();
     } catch (hiba) {
       hibaBox.style.display = 'block';
       hibaBox.textContent = 'Hiba: ' + hiba.message;
     } finally {
-      kuldjGomb.textContent = 'Esemény létrehozása';
+      kuldjGomb.textContent = 'Esemeny letrehozasa';
       kuldjGomb.disabled = false;
     }
   });

@@ -7,14 +7,16 @@ function beVanLepve() {
   return !!localStorage.getItem('token');
 }
 
-function hitelesitesKotelező() {
+function hitelesitesKotelezo() {
   if (!beVanLepve()) {
     window.location.href = 'belepes.html';
   }
 }
 
-// alias ékezet nélkül is működjön
-function hitelesitesKotelező() { hitelesitesKotelező(); }
+function isAdmin(felhasznalo) {
+  if (!felhasznalo) return false;
+  return felhasznalo.szerepkor === 'admin' || felhasznalo.role === 'admin';
+}
 
 function kilepes() {
   localStorage.removeItem('token');
@@ -38,7 +40,7 @@ function navigacioFrissitese() {
     }
   }
 
-  if (navAdmin && (felhasznalo?.szerepkor === 'admin' || felhasznalo?.role === 'admin')) {
+  if (navAdmin && isAdmin(felhasznalo)) {
     navAdmin.style.display = 'inline-flex';
   }
 }
