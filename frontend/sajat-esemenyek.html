@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saját eseményeim - Eseménykezelő</title>
+  <link rel="stylesheet" href="css/stilusok.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
+    <div class="nav-linkek">
+      <a href="index.html" class="nav-link">Események</a>
+      <a href="uj-esemeny.html" class="nav-link">+ Új esemény</a>
+      <button onclick="kilepes()" class="nav-link gomb-kilepes">Kilépés</button>
+    </div>
+  </nav>
+  <main class="tartalom">
+    <!-- Szervező saját eseményei -->
+    <h2>Saját eseményeim</h2>
+    <div id="sajat-esemenyek-lista"><div class="betoltes">Betöltés...</div></div>
+
+    <!-- Felhasználó jelenkezései -->
+    <h2 style="margin-top:2rem">Jelentkezéseim</h2>
+    <div id="sajat-jelentkezesek-lista"><div class="betoltes">Betöltés...</div></div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/hitelesites.js"></script>
+  <script src="js/sajat-esemenyek.js"></script>
+</body>
+</html>

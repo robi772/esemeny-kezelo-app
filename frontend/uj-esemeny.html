@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Új esemény - Eseménykezelő</title>
+  <link rel="stylesheet" href="css/stilusok.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
+    <div class="nav-linkek"><a href="index.html" class="nav-link">← Vissza</a></div>
+  </nav>
+  <main class="tartalom">
+    <div class="urlap-kartya">
+      <h2>Új esemény létrehozása</h2>
+      <div id="hiba-uzenet" class="figyelmeztetés hiba" style="display:none"></div>
+      <div id="siker-uzenet" class="figyelmeztetés siker" style="display:none"></div>
+      <form id="uj-esemeny-urlap">
+        <div class="urlap-csoport">
+          <label>Esemény neve *</label>
+          <input type="text" id="cim" required placeholder="Pl. Tech Meetup 2026">
+        </div>
+        <div class="urlap-csoport">
+          <label>Leírás</label>
+          <textarea id="leiras" rows="4" placeholder="Az esemény részletes leírása..."></textarea>
+        </div>
+        <div class="urlap-sor">
+          <div class="urlap-csoport">
+            <label>Dátum és időpont *</label>
+            <input type="datetime-local" id="datum" required>
+          </div>
+          <div class="urlap-csoport">
+            <label>Max. résztvevők száma</label>
+            <input type="number" id="max_resztvevok" min="1" placeholder="Korlátlan">
+          </div>
+        </div>
+        <div class="urlap-csoport">
+          <label>Helyszín *</label>
+          <input type="text" id="helyszin" required placeholder="Pl. Budapest, Akvárium Klub">
+        </div>
+        <button type="submit" class="gomb gomb-primary">Esemény létrehozása</button>
+      </form>
+    </div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/hitelesites.js"></script>
+  <script src="js/uj-esemeny.js"></script>
+</body>
+</html>

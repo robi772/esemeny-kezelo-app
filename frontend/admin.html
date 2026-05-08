@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin felület - Eseménykezelő</title>
+  <link rel="stylesheet" href="css/stilusok.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
+    <div class="nav-linkek">
+      <a href="index.html" class="nav-link">Események</a>
+      <button onclick="kilepes()" class="nav-link gomb-kilepes">Kilépés</button>
+    </div>
+  </nav>
+  <main class="tartalom">
+    <div class="oldal-fejlec">
+      <h1>Admin felület</h1>
+      <p>Események jóváhagyása és kezelése</p>
+    </div>
+    <!-- Füles navigáció -->
+    <div class="admin-fulek">
+      <button class="ful-gomb aktiv" data-ful="fuggoben">Függőben lévők</button>
+      <button class="ful-gomb" data-ful="osszes">Összes esemény</button>
+      <button class="ful-gomb" data-ful="felhasznalok">Felhasználók</button>
+    </div>
+    <!-- Fül tartalmak -->
+    <div id="ful-fuggoben" class="ful-tartalom">
+      <div id="fuggoben-esemenyek"><div class="betoltes">Betöltés...</div></div>
+    </div>
+    <div id="ful-osszes" class="ful-tartalom" style="display:none">
+      <div id="osszes-esemeny"></div>
+    </div>
+    <div id="ful-felhasznalok" class="ful-tartalom" style="display:none">
+      <div id="felhasznalok-lista"></div>
+    </div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/hitelesites.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
