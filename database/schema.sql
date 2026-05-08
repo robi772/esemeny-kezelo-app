@@ -1,9 +1,10 @@
--- Eseménykezelő Adatbázis Séma
+-- Esemenykezelo Adatbazis Schema
+-- Karakterkeszlet: utf8mb4
 
 CREATE DATABASE IF NOT EXISTS esemeny_kezelo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE esemeny_kezelo;
 
--- Felhasználók tábla
+-- Felhasznalok tabla
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(100) NOT NULL,
@@ -14,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Események tábla
+-- Esemenyek tabla
 CREATE TABLE IF NOT EXISTS events (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
@@ -29,7 +30,7 @@ CREATE TABLE IF NOT EXISTS events (
   FOREIGN KEY (organizer_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Jelentkezések tábla
+-- Jelentkezesek tabla
 CREATE TABLE IF NOT EXISTS registrations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
@@ -47,26 +48,24 @@ CREATE INDEX idx_esemenyek_szervezo ON events(organizer_id);
 CREATE INDEX idx_jelentkezesek_felhasznalo ON registrations(user_id);
 CREATE INDEX idx_jelentkezesek_esemeny ON registrations(event_id);
 
--- Alapértelmezett admin felhasználó
--- jelszó: password
+-- Admin felhasznalo (jelszo: password)
 INSERT INTO users (username, email, password_hash, role) VALUES (
   'admin',
   'admin@esemenykezelo.local',
-  '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.',
+  '$2b$10$YourNewHashHere.replaceThisWithActualBcryptHash',
   'admin'
 );
 
--- Demo szervező felhasználó
--- jelszó: password
+-- Demo szervezo felhasznalo (jelszo: password)
 INSERT INTO users (username, email, password_hash, role) VALUES (
   'demo_szervezo',
   'szervezo@esemenykezelo.local',
-  '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.',
+  '$2b$10$YourNewHashHere.replaceThisWithActualBcryptHash',
   'organizer'
 );
 
--- Demo események
+-- Demo esemenyek
 INSERT INTO events (title, description, event_date, location, max_participants, organizer_id, status) VALUES
-  ('Tech Meetup Budapest 2026', 'Évi tech találkozó Budapest szívében. Előadások, networking és sok érdekesség!', '2026-09-15 18:00:00', 'Budapest, Akvárium Klub', 200, 2, 'approved'),
+  ('Tech Meetup Budapest 2026', 'Evi tech talalkozó Budapest szívében. Előadások, networking és sok érdekesség!', '2026-09-15 18:00:00', 'Budapest, Akvárium Klub', 200, 2, 'approved'),
   ('React Workshop', 'Haladó React fejlesztés: hooks, context, performance optimalizálás.', '2026-10-05 10:00:00', 'Budapest, Teleki tér 8.', 30, 2, 'approved'),
   ('Robotics Demo Nap', 'Autonóm robotok bemutatója és közönség interakció.', '2026-11-20 14:00:00', 'Budapest, BME Q épület', 100, 2, 'approved');
