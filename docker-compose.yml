@@ -10,8 +10,6 @@ services:
       MYSQL_DATABASE: esemeny_kezelo
       MYSQL_USER: esemeny_user
       MYSQL_PASSWORD: esemeny_jelszo
-      MYSQL_CHARSET: utf8mb4
-      MYSQL_COLLATION: utf8mb4_unicode_ci
     volumes:
       - adatbazis_adatok:/var/lib/mysql
       - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
@@ -31,7 +29,7 @@ services:
     environment:
       DB_HOST: adatbazis
       DB_USER: esemeny_user
-      DB_PASS: esemeny_jelszo
+      DB_PASSWORD: esemeny_jelszo
       DB_NAME: esemeny_kezelo
       JWT_TITOK: valtozd_meg_ezt_a_titkot_production_ban
       PORT: 3000
