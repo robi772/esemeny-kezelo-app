@@ -19,7 +19,7 @@ async function esemenyAllapotFrissitese(id, allapot) {
   }
 }
 
-async function esemenyTörlése(id) {
+async function esemenyTorlese(id) {
   if (!confirm('Biztosan törlöd ezt az eseményt? Ez a művelet nem vonható vissza.')) return;
   try {
     await apiKeres(`/admin/esemenyek/${id}`, { method: 'DELETE' });
@@ -29,10 +29,17 @@ async function esemenyTörlése(id) {
   }
 }
 
+function isAdmin(felhasznalo) {
+  return felhasznalo?.szerepkor === 'admin' || felhasznalo?.role === 'admin';
+}
+
 async function adminAdatokBetoltese() {
-  hitelesitesKotelező();
+  if (!beVanLepve()) {
+    window.location.href = 'belepes.html';
+    return;
+  }
   const felhasznalo = getJelenlegiFelhasznalo();
-  if (felhasznalo?.szerepkor !== 'admin') {
+  if (!isAdmin(felhasznalo)) {
     window.location.href = 'index.html';
     return;
   }
@@ -75,7 +82,7 @@ async function adminAdatokBetoltese() {
             <p><span class="cimke">📅 Dátum:</span> ${new Date(e.event_date).toLocaleString('hu-HU')}</p>
           </div>
           <div class="esemeny-kartya-lab">
-            <button class="gomb gomb-veszelyes" onclick="esemenyTörlése(${e.id})">🗑 Törlés</button>
+            <button class="gomb gomb-veszelyes" onclick="esemenyTorlese(${e.id})">🗑 Törlés</button>
           </div>
         </div>
       `).join('')

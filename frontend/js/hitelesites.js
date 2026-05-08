@@ -13,6 +13,9 @@ function hitelesitesKotelező() {
   }
 }
 
+// alias ékezet nélkül is működjön
+function hitelesitesKotelező() { hitelesitesKotelező(); }
+
 function kilepes() {
   localStorage.removeItem('token');
   localStorage.removeItem('felhasznalo');
@@ -35,7 +38,7 @@ function navigacioFrissitese() {
     }
   }
 
-  if (navAdmin && felhasznalo?.szerepkor === 'admin') {
+  if (navAdmin && (felhasznalo?.szerepkor === 'admin' || felhasznalo?.role === 'admin')) {
     navAdmin.style.display = 'inline-flex';
   }
 }
