@@ -1,3 +1,206 @@
-IyDwn46rIEVzZW3DqW55a2V6ZWzFkSBBbGthbG1hesOhcwoKRWd5IHRlbGplcyBlc3rta8O2ei1rZXplbMWRIHdlYmFsa2FsbWF6w6FzIE5vZGUuanMgYmFja2VuZGRlbCwgdmFuaWxsYSBKYXZhU2NyaXB0IGZyb250ZW5kZGVsIMOpcyBNeVNRTCBhZGF0YsOhemlzc2FsLiBEb2NrZXItYWxhcMO6IGRlcGxveW1lbnR0ZWwuCgohW1Zlcnppw7NdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvdmVyemlvLTEuMC4wLWJsdWUuc3ZnKSAhW0xpY2VuY2VdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvbGljZW5jZS1NSVQtZ3JlZW4uc3ZnKSAhW05vZGVdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2Uvbm9kZS0lM0UlM0QxOC1ncmVlbi5zdmcpCgotLS0KCiMjIPCfk4wgVGFydGFsb21qZWd5esOpawoKLSBbRnVua2Npw7NrXSgjZnVua2Npw7NrKQotIFtSZW5kc3plcmlnw6lueWVrXSgjcmVuZHN6ZXJpZ8OpbnllaykKLSBbSW5kw61yw6FzXSgjaW5kw61yw6FzKQogIC0gW0RvY2tlcnJlbF0oI2RvY2tlcnJlbCkKICAtIFtLw6l6aWZlamxlc3p0w6lzaGV6XSgja8OpemkpCi0gW0FQSSBkb2t1bWVudMOhY2nDs10oI2FwaS1kb2t1bWVudMOhY2nDsykKLSBbUHJvamVrdCBzdHJ1a3TDunJhXSgjcHJvamVrdC1zdHJ1a3TDunJhKQotIFtUZXN6dGVsw6lzXSgjdGVzemVsw6lzKQoKLS0tCgojIyDwn5qAIEZ1bmtjacOzawoKLSAqKlJlZ2lzenRyw6FjacOzIMOpcyBiZWzDqXDDqXMqKiDigJMgSldUIHRva2VuIGFsYXDDuiBow610ZWxlc8OtdMOpcwotICoqRXNlbcOpbnlrIGJvesOhc2EqKiDigJMgw7pqIGVzZW3DqW55ZWsgbMOpdHJlaG96w6FzYSBqw7Z2w6FoYWd5w6FzcmEgdsOhcgotICoqSmVsZW50a2V6w6lzKiogZXNlbcOpbnlyZSwgbGVtb25kw6FzIGxlaGV0b8WRc8OpZ2UKLSAqKlNhasOhdCBlc2Vtw6lueWVrKiogcGFuZWwgLSBzYWrDoXQgZXNlbcOpbnllaywgemVsZW50a2V6w6lzZWsga2V6ZWzDqXNlCi0gKipFc2Vtw6lueXMgemVya2VzenTDqXMqKiDigJMgZXNlbcOpbnkgYWRhdGFpbmFrIG3Ds2Rvc8OtdMOhc2EKLSAqKkFkbWluIGZlbMO8bGV0KiogLSBqw7Z2w6FoYWd5w6FzLCBlbHV0YXPDrXTDoXMsIHTDtnJsw6lzLCBmZWxoYXN6bsOhbMOzayBsaXN0w6FqYQotICoqRG9ja2VyLWFsYXDDuiBkZXBsb3ltZW50KiogYWQgaG9jIGluZGTDrXTDoXNzYWwKCi0tLQoKIyMg8J+TiyBSZW5kc3plcmlnw6lueWVrCgotIFtEb2NrZXJdKGh0dHBzOi8vd3d3LmRvY2tlci5jb20pICsgW0RvY2tlciBDb21wb3NlXShodHRwczovL2RvY3MuZG9ja2VyLmNvbS9jb21wb3NlLykKLSBbTm9kZS5qcyAyMCtdKGh0dHBzOi8vbm9kZWpzLm9yZykgKGZlamxlc3p0w6lzaGV6KQotIFtNeVNRTCA4LjArXShodHRwczovL3d3dy5teXNxbC5jb20pCgotLS0KCiMjIPCflqAgSW5kw61yw6FzCgojIyMgRG9ja2VycmVsCgpFeiBlZ3l1dGFsYW4gYSBsZWdneW9yc2FiYiBtw7Nkc3plci4KCjEuIEtsw7Nub3pkIGEgcmVww7N0OgogICBgYGBiYXNoCiAgIGdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vcm9iaTc3Mi9lc2VtZW55LWtlemVsby1hcHAuZ2l0CiAgIGNkIGVzZW1lbnkta2V6ZWxvLWFwcAogICBgYGAKCjIuIEluZMOtdHMgRG9ja2VycmVsOgogICBgYGBiYXNoCiAgIGRvY2tlciBjb21wb3NlIHVwIC0tYnVpbGQKICAgYGBgCgozLiBOw61kam8gbWVnIGEgYnLDtnV6esWRYmVuOgogICBgYGAKICAgaHR0cDovL2xvY2FsaG9zdDo4MDgwCiAgIGBgYAoKPiBBIGHEn3libMOpayBiZXRvbHTFkWToiMg76aGqIGF0b21hdGlrdXNhbiBsw6l0cmVqw7ZuLiBEZW1vIGJlbMOpcMOpc2kgYWRhdG9rOgogPiAtIEFkbWluOiBgYWRtaW5AZXNlbWVueWtlemVsby5sb2NhbGAgLyBgcGFzc3dvcmRgCiA+IC0gU3plcnZlesWROiBgc3plcnZlem9AZXNlbWVueWtlemVsby5sb2NhbGAgLyBgcGFzc3dvcmRgCgojIyMgS8OpemkKCjEuIFRlbGVww610c2QgYSBmdWdnxZFzw6lnZWtldDoKICAgYGBgYmFzaAogICBjZCBiYWNrZW5kICYmIG5wbSBpbnN0YWxsCiAgIGBgYAoKMi4gSMOzenogbMOpdHJlIGEgYC5lbnZgIGbDoWpsZXQ6CiAgIGBgYGJhc2gKICAgY3AgYmFja2VuZC8uZW52LmV4YW1wbGUgYmFja2VuZC8uZW52CiAgICMgU3plcmtlc3pkIG1lZyBheiBhZGF0YsOhemlzIGFkYXRva2F0IHN6w7xrc8OpZ2Vzc3rDqW50CiAgIGBgYAoKMy4gSW5kw610c2QgYSBiYWNrZW5kZXQ6CiAgIGBgYGJhc2gKICAgY2QgYmFja2VuZCAmJiBucG0gcnVuIGRldgogICBgYGAKCjQuIE55aXNkIG1lZyBhIGZyb250ZW5kZXQgZWd5IHdlYnN6ZXJ2ZXJyZWwgKHBsLiBMaXZlIFNlcnZlciBWUyBDb2RlIGLFkXbDrXRtw6lueWJlbikuCgotLS0KCiMjIPCfk4IgQVBJIGRva3VtZW50w6FjacOzCgojIyMgSGl0ZWxlc8OtdMOpcwoKfCBNw7NkYW5pZW5nZWQgfCBWw6lncG9udCB8IExlw61yw6FzIHwKfCAtLS0gfCAtLS0gfCAtLS0gfAp8IFBPU1QgfCBgL2FwaS9oaXRlbGVzaXRlcy9yZWdpc3p0cmFjaW9gIHwgVMOhamVrb3p0YXTDoXMgfAp8IFBPU1QgfCBgL2FwaS9oaXRlbGVzaXRlcy9iZWxlcGVzYCB8IEJlbMOpcMOpcyB8CgojIyMgRXNlbcOpbnllawoKfCBNw7NkYW5pZW5nZWQgfCBWw6lncG9udCB8IExlw61yw6FzIHwKfCAtLS0gfCAtLS0gfCAtLS0gfAp8IEdFVCB8IGAvYXBpL2VzZW3DqW55ZWtgIHwgSsOzdmOhaGFneW90dCBlc2Vtw6lueWVrIGxpc3TDoWphIHwKfCBHRVQgfCBgL2FwaS9lc2Vtw6lueWVrL3NhamF0YCB8IFNhasOhdCBlc2Vtw6lueWVrICh0b2tlbiBrZWxsKSB8CnwgR0VUIHwgYC9hcGkvZXNlbcOpbnllay86aWRgIHwgRXNlbcOpbnkgcMOpc3psZXRlaSB8CnwgUE9TVCB8IGAvYXBpL2VzZW3DqW55ZWtgIHwgw5xqIGVzZW3DqW55IGzDqXRyZWhvesOhc2EgKHRva2VuIGtlbGwpIHwKfCBQVVQgfCBgL2FwaS9lc2Vtw6lueWVrLzppZGAgfCBFc2Vtw6lueSBzZXJrZXN6dMOpc2UgfAoKIyMjIEplbGVudGtlesOpc2VrCgp8IE3Ds2RhbmllbmdlZCB8IFbDqWdwb250IHwgTGXDrXLDoXMgfAp8IC0tLSB8IC0tLSB8IC0tLSB8CnwgUE9TVCB8IGAvYXBpL2plbGVudGtlesOpc2VrYCB8IEVzZW3DqW55cmUgdmFsw7MgamVsZW50a2V6w6lzIHwKfCBERUxFVEUgfCBgL2FwaS9qZWxlbnRrZXrDqXNlay86aWRgIHwgSmVsZW50a2V6w6lzIGxlbW9uZMOhc2EgfAp8IEdFVCB8IGAvYXBpL2plbGVudGtlesOpc2VrL3NhamF0YCB8IFNhasOhdCBqZWxlbnRrZXrDqXNlayB8CnwgR0VUIHwgYC9hcGkvamVsZW50a2V6w6lzZWsvZXNlbcOpbnkvOmVzZW15SWRgIHwgRXNlbcOpbnkgcMOpc3psZXRlaSAoc3plcnZlesnFkSkgfAoKIyMjIEFkbWluCgp8IE3Ds2RhbmllbmdlZCB8IFbDqWdwb250IHwgTGXDrXLDoXMgfAp8IC0tLSB8IC0tLSB8IC0tLSB8CnwgR0VUIHwgYC9hcGkvYWRtaW4vZXNlbcOpbnlla2AgfCDDlnNzemVzIGVzZW3DqW55IGxpc3TDoWphIHwKfCBQQVRDSCB8IGAvYXBpL2FkbWluL2VzZW3DqW55ZWsvOmlkL2FsbGFwb3RgIHwgSsOzdmOhaGFnecOhcyAvIGVsdXRhc8OtdMOhcyB8CnwgREVMRVRFIHwgYC9hcGkvYWRtaW4vZXNlbcOpbnllay86aWRgIHwgRXNlbcOpbnkgdMO2cmzDqXNlIHwKfCBHRVQgfCBgL2FwaS9hZG1pbi9mZWxoYXN6bmFsb2tgIHwgRmVsaGFzem7DoWzDsyBsaXN0YSB8CgotLS0KCiMjIPCfk6IgUHJvamVrdCBzdHJ1a3TDunJhCgpgYGAKZXNlbWVueS1rZXplbG8tYXBwLwrilIIK4pSc4pSA4pSAIGJhY2tlbmQvCuKUgiAgICDilJzilIDilIAgc3JjLwrilIIgICAgICDilJzilIDilIAgZGIuanMgICAgICAgICAgICAgICAgICAgICAjIEFkYXRiw6F6aXMga2Fwb2xhdArilIIgICAgICDilJzilIDilIAgaW5kZXguanMgICAgICAgICAgICAgICAgICMgU3plcnZlciBiZWzDqXDDqXNpIHBvbnQK4pSCICAgICAgfArilIIgICAgICDilJzilIDilIAgbWlkZGxld2FyZS8K4pSCICAgICAgfCAgICDilJTilIDilIAgaGl0ZWxlc2l0ZXMuanMgICAgICAgICMgSldUIGVsbGVub3J6w6lzCuKUgiAgICAgIHwK4pSCICAgICDilJTilIDilIAgcm91dGVzLwrilIIgICAgICAgICAgIOKUlOKUgOKUgCBoaXRlbGVzaXRlcy5qcywgZXNlbcOpbnllay5qcywKfCAgICAgICAgICAgICAgICBqZWxlbnRrZXrDqXNlay5qcywgYWRtaW4uanMK4pSCICAg4pSc4pSA4pSAIHRlc3RzLwrilIIgICAgICDilJTilIDilIAgYXBwLnRlc3QuanMgICAgICAgICAgICAgICMgSW50ZWdyw6FjacOzcyB0ZXN6dGVrCuKUgiAgIOKUnOKUgOKUgCAuZW52LmV4YW1wbGUK4pSCICAg4pSc4pSA4pSAIERvY2tlcmZpbGUK4pSCICAg4pSU4pSA4pSAIHBhY2thZ2UuanNvbgrilIIK4pSc4pSA4pSAIGRhdGFiYXNlLwrilIIgICDilJTilIDilIAgc2NoZW1hLnNxbCAgICAgICAgICAgICAgICAgICMgQWRhdGLDoXppcyBzw6ltYQrilIIK4pSc4pSA4pSAIGZyb250ZW5kLwrilIIgICDilJzilIDilIAgY3NzL3N0aWx1cy5jc3MgICAgICAgICAgICAgIyBGxZEgc3TDrWx1c2xhcArilIIgICDilJzilIDilIAgaW5kZXguaHRtbCAgICAgICAgICAgICAgICAgIyBGxZFvbGRhbArilIIgICDilJzilIDilIAgYmVsZXBlcy5odG1sICAgICAgICAgICAgICAgIyBCZWzDqXDDqXMKfCAgIOKUnOKUgOKUgCByZWdpc3p0cmFjaW8uaHRtbCAgICAgICAgICAgIyBSZWdpc3p0csOhY2nDswrilIIgICDilJzilIDilIAgZXNlbWVueS1yZXN6bGV0ZWsuaHRtbCAgICAgIyBFc2Vtw6lueSBkZXRhaWwK4pSCICAg4pSc4pSA4pSAIHVqLWVzZW1lbnkuaHRtbCAgICAgICAgICAgICMgw5xqIGVzZW3DqW55CuKUgiAgIOKUnOKUgOKUgCBzYWphdC1lc2VtZW55ZWsuaHRtbCAgICAgICMgU2Fqw6F0IHBhbmVsCuKUgiAgIOKUnOKUgOKUgCBzemVya2VzenRlcy1lc2VtZW55Lmh0bWwgICAgIyBTZXJrZXN6dMOpcwrilIIgICDilJzilIDilIAgYWRtaW4uaHRtbCAgICAgICAgICAgICAgICAgIyBBZG1pbgrilIIgICDilJTilIDilIAgaW1hZ2VzLyAgICAgICAgICAgICAgICAgICAgICMgS8OpcGVrCuKUggrilJzilIDilIAgZG9ja2VyLWNvbXBvc2UueW1sCuKUnOKUgOKUgCBuZ2lueC5jb25mCuKUnOKUgOKUgCAuZ2l0aWdub3JlCuKUlOKUgOKUgCBSRUFETUUubWQKYGBgCgotLS0KCiMjIPCfpJUgVGVzemVsw6lzCgpgYGBiYXNoCmNkIGJhY2tlbmQKbnBtIHRlc3QKYGB
+# 🎫 Eseménykezelő Alkalmazás
 
-ICMjIPCfk6UgRmVqbGVzenTDqXNpIHRlcnYKClRlcnZlemV0dCBqw7Z2xZFiZWxpIGZ1bmtjacOzazoKLSBbIF0gRS1tYWlsIGVydGVzw610w6lzIGplbGVudGtlesOpc3V0w6FuCi0gWyBdIEVzZW3DqW55IHN6xbFyw6lzIC8ga2F0ZWfDs3JpYQotIFsgXSBGZWxoYXN6bsOhbMOzaSBwcm9maWwgc3plcmtlc3p0w6lzZQotIFsgXSBBZG1pbiBzdGF0aXN6dGlrYWkgZGFzaGJvYXJkCi0gWyBdIFJlc3BvbnNpdmUgbW9iaWwgbmV6ZXQgZmVqbGVzenTDqXNlCgotLS0KCiMjIPCfk5cgTGljZW5jCgpbTUlUXShMSUNFTlNFKSBDb3B5cmlnaHQgwqkgMjAyNg==
+Egy teljes eseménykezelő webalkalmazás Node.js backenddel, vanilla JavaScript frontenddel és MySQL adatbázissal. Docker-alapú deploymenttel.
+
+![Verzió](https://img.shields.io/badge/verzió-1.0.0-blue.svg) ![Licence](https://img.shields.io/badge/licence-MIT-green.svg) ![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
+
+---
+
+## 📌 Tartalomjegyzék
+
+- [Funkciók](#funkciók)
+- [Rendszerigények](#rendszerigények)
+- [Indítás](#indítás)
+  - [Dockerrel](#dockerrel)
+  - [Kézi fejlesztéshez](#kézi-fejlesztéshez)
+- [API dokumentáció](#api-dokumentáció)
+- [Projekt struktúra](#projekt-struktúra)
+- [Tesztelés](#tesztelés)
+
+---
+
+## 🚀 Funkciók
+
+- **Regisztráció és belépés** – JWT token alapú hitelesítés
+- **Események böngészése** – jóváhagyott események listája
+- **Új esemény létrehozása** – jóváhagyásra vár
+- **Jelentkezés** eseményre, lemondás lehetősége
+- **Saját események** panel – saját események és jelentkezések kezelése
+- **Esemény szerkesztése** – adatok módosítása
+- **Admin felület** – jóváhagyás, elutasítás, törlés, felhasználók listája
+- **Docker-alapú deployment** ad hoc indítással
+
+---
+
+## 📋 Rendszerigények
+
+- [Docker](https://www.docker.com) + [Docker Compose](https://docs.docker.com/compose/)
+- [Node.js 18+](https://nodejs.org) (fejlesztéshez)
+- [MySQL 8.0+](https://www.mysql.com)
+
+---
+
+## ⚡ Indítás
+
+### Dockerrel
+
+Ez egyúttal a leggyorsabb módszer.
+
+1. Klónozd a repót:
+   ```bash
+   git clone https://github.com/robi772/esemeny-kezelo-app.git
+   cd esemeny-kezelo-app
+   ```
+
+2. Indítsd Dockerrel:
+   ```bash
+   docker compose up --build
+   ```
+
+3. Nyisd meg a böngészőben:
+   ```
+   http://localhost:8080
+   ```
+
+> Az adatbázis és demo adatok automatikusan létrejönnek. Demo belépési adatok:
+> - Admin: `admin@esemenykezelo.local` / `password`
+> - Szervező: `szervezo@esemenykezelo.local` / `password`
+
+### Kézi fejlesztéshez
+
+1. Telepítsd a függőségeket:
+   ```bash
+   cd backend && npm install
+   ```
+
+2. Hozz létre `.env` fájlt:
+   ```bash
+   cp backend/.env.example backend/.env
+   # Szerkeszd meg az adatbázis adatokat szükség szerint
+   ```
+
+3. Indítsd a backendet:
+   ```bash
+   cd backend && npm run dev
+   ```
+
+4. Nyisd meg a frontendet egy webszerverrel (pl. Live Server VS Code bővítményben).
+
+---
+
+## 📂 API dokumentáció
+
+### Hitelesítés
+
+| Módszer | Végpont | Leírás |
+| --- | --- | --- |
+| POST | `/api/hitelesites/regisztracio` | Regisztráció |
+| POST | `/api/hitelesites/belepes` | Belépés |
+
+### Események
+
+| Módszer | Végpont | Leírás |
+| --- | --- | --- |
+| GET | `/api/esemenyek` | Jóváhagyott események listája |
+| GET | `/api/esemenyek/sajat` | Saját események (token kell) |
+| GET | `/api/esemenyek/:id` | Esemény részletei |
+| POST | `/api/esemenyek` | Új esemény létrehozása (token kell) |
+| PUT | `/api/esemenyek/:id` | Esemény szerkesztése |
+
+### Jelentkezések
+
+| Módszer | Végpont | Leírás |
+| --- | --- | --- |
+| POST | `/api/jelentkezesek` | Eseményre való jelentkezés |
+| DELETE | `/api/jelentkezesek/:id` | Jelentkezés lemondása |
+| GET | `/api/jelentkezesek/sajat` | Saját jelentkezések |
+| GET | `/api/jelentkezesek/esemeny/:esemenyId` | Esemény résztvevői (szervező) |
+
+### Admin
+
+| Módszer | Végpont | Leírás |
+| --- | --- | --- |
+| GET | `/api/admin/esemenyek` | Összes esemény listája |
+| PATCH | `/api/admin/esemenyek/:id/allapot` | Jóváhagyás / elutasítás |
+| DELETE | `/api/admin/esemenyek/:id` | Esemény törlése |
+| GET | `/api/admin/felhasznalok` | Felhasználó lista |
+
+---
+
+## 📁 Projekt struktúra
+
+```
+esemeny-kezelo-app/
+│
+├── backend/
+│   ├── src/
+│   │   ├── db.js                    # Adatbázis kapcsolat
+│   │   ├── index.js                 # Szerver belépési pont
+│   │   ├── middleware/
+│   │   │   └── hitelesites.js       # JWT ellenőrzés
+│   │   └── routes/
+│   │       ├── hitelesites.js
+│   │       ├── esemenyek.js
+│   │       ├── jelentkezesek.js
+│   │       └── admin.js
+│   ├── tests/
+│   │   └── app.test.js              # Integrációs tesztek
+│   ├── .env.example
+│   ├── Dockerfile
+│   └── package.json
+│
+├── database/
+│   └── schema.sql                   # Adatbázis séma + demo adatok
+│
+├── frontend/
+│   ├── css/stilus.css
+│   ├── index.html                   # Főoldal
+│   ├── belepes.html
+│   ├── regisztracio.html
+│   ├── esemeny-reszletek.html
+│   ├── uj-esemeny.html
+│   ├── sajat-esemenyek.html
+│   ├── szerkesztes-esemeny.html
+│   ├── admin.html
+│   └── js/
+│       ├── api.js
+│       ├── hitelesites.js
+│       ├── fooldal.js
+│       ├── belepes.js
+│       ├── regisztracio.js
+│       ├── esemeny-reszletek.js
+│       ├── uj-esemeny.js
+│       ├── sajat-esemenyek.js
+│       ├── szerkesztes-esemeny.js
+│       └── admin.js
+│
+├── docker-compose.yml
+├── nginx.conf
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🧪 Tesztelés
+
+```bash
+cd backend
+npm test
+```
+
+---
+
+## 📅 Fejlesztési terv
+
+- [ ] E-mail értesítés jelentkezésután
+- [ ] Esemény szűrés / kategória
+- [ ] Felhasználói profil szerkesztése
+- [ ] Admin statisztikai dashboard
+- [ ] Responsive mobil nézet fejlesztése
+
+---
+
+## 📝 Licenc
+
+[MIT](LICENSE) Copyright © 2026
