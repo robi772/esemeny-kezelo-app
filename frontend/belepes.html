@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Belépés - Eseménykezelő</title>
-  <link rel="stylesheet" href="css/stilusok.css">
+  <link rel="stylesheet" href="css/stilus.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
+  <nav class="navigacio">
+    <div class="nav-marka"><a href="index.html">🎫 Eseménykezelő</a></div>
+    <div class="nav-linkek">
+      <a href="index.html" class="nav-link">← Vissza</a>
+    </div>
   </nav>
-  <main class="tartalom">
+  <main class="tartaly">
     <div class="auth-kartya">
       <h2>Belépés</h2>
-      <!-- Hibaüzenet doboz -->
-      <div id="hiba-uzenet" class="figyelmeztetés hiba" style="display:none"></div>
+      <div id="hiba-uzenet" class="figyelmeztetés figyelmeztetés-hiba" style="display:none"></div>
       <form id="belepes-urlap">
         <div class="urlap-csoport">
           <label>E-mail cím</label>
@@ -24,7 +26,7 @@
           <label>Jelszó</label>
           <input type="password" id="jelszo" required placeholder="••••••••">
         </div>
-        <button type="submit" class="gomb gomb-primary gomb-teljes">Belépés</button>
+        <button type="submit" class="gomb gomb-elsdleges gomb-teljes">Belépés</button>
       </form>
       <p class="auth-link">Még nincs fiókod? <a href="regisztracio.html">Regisztrálj!</a></p>
     </div>

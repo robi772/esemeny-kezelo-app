@@ -4,36 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin felület - Eseménykezelő</title>
-  <link rel="stylesheet" href="css/stilusok.css">
+  <link rel="stylesheet" href="css/stilus.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
+  <nav class="navigacio">
+    <div class="nav-marka"><a href="index.html">🎫 Eseménykezelő</a></div>
     <div class="nav-linkek">
       <a href="index.html" class="nav-link">Események</a>
       <button onclick="kilepes()" class="nav-link gomb-kilepes">Kilépés</button>
     </div>
   </nav>
-  <main class="tartalom">
+  <main class="tartaly">
     <div class="oldal-fejlec">
       <h1>Admin felület</h1>
       <p>Események jóváhagyása és kezelése</p>
     </div>
-    <!-- Füles navigáció -->
-    <div class="admin-fulek">
-      <button class="ful-gomb aktiv" data-ful="fuggoben">Függőben lévők</button>
-      <button class="ful-gomb" data-ful="osszes">Összes esemény</button>
-      <button class="ful-gomb" data-ful="felhasznalok">Felhasználók</button>
+    <div class="admin-tabok">
+      <button class="tab-gomb aktiv" data-tab="fuggoben">Függőben lévő</button>
+      <button class="tab-gomb" data-tab="osszes">Összes esemény</button>
+      <button class="tab-gomb" data-tab="felhasznalok">Felhasználók</button>
     </div>
-    <!-- Fül tartalmak -->
-    <div id="ful-fuggoben" class="ful-tartalom">
+    <div id="tab-fuggoben" class="tab-tartalom">
       <div id="fuggoben-esemenyek"><div class="betoltes">Betöltés...</div></div>
     </div>
-    <div id="ful-osszes" class="ful-tartalom" style="display:none">
-      <div id="osszes-esemeny"></div>
+    <div id="tab-osszes" class="tab-tartalom" style="display:none">
+      <div id="osszes-esemeny"><div class="betoltes"></div></div>
     </div>
-    <div id="ful-felhasznalok" class="ful-tartalom" style="display:none">
-      <div id="felhasznalok-lista"></div>
+    <div id="tab-felhasznalok" class="tab-tartalom" style="display:none">
+      <div id="felhasznalok-lista"><div class="betoltes"></div></div>
     </div>
   </main>
   <script src="js/api.js"></script>

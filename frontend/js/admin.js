@@ -1,102 +1,109 @@
-// Admin felület JavaScript - esemenyek jovahagyasa, felhasznalok kezelese
-
-/** Ful valtas kezelo */
-function fulValtas(fulNev, gomb) {
-  document.querySelectorAll('.ful-tartalom').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.ful-gomb').forEach(el => el.classList.remove('aktiv'));
-  document.getElementById(`ful-${fulNev}`).style.display = 'block';
+function tabMutatasa(tab, gomb) {
+  document.querySelectorAll('.tab-tartalom').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.tab-gomb').forEach(el => el.classList.remove('aktiv'));
+  document.getElementById(`tab-${tab}`).style.display = 'block';
   if (gomb) gomb.classList.add('aktiv');
 }
 
-/** Esemeny allapotanak frissitese (jovahagyas / elutasitas) */
-async function esemenyAllapotFrissites(id, allapot) {
+async function esemenyAllapotFrissitese(id, allapot) {
+  const cimke = allapot === 'approved' ? 'jóváhagyod' : 'elutasítod';
+  if (!confirm(`Biztosan ${cimke} ezt az eseményt?`)) return;
   try {
     await apiKeres(`/admin/esemenyek/${id}/allapot`, {
       method: 'PATCH',
       body: JSON.stringify({ allapot })
     });
-    adminAdatokBetoltese(); // Lista frissitese
+    adminAdatokBetoltese();
   } catch (hiba) {
-    alert(hiba.message);
+    alert('Hiba: ' + hiba.message);
   }
 }
 
-/** Esemeny torlese megerositessel */
-async function esemenyTorles(id) {
-  if (!confirm('Biztosan torlod ezt az esemenyt? Ez a muvelet nem vonhato vissza!')) return;
+async function esemenyTörlése(id) {
+  if (!confirm('Biztosan törlöd ezt az eseményt? Ez a művelet nem vonható vissza.')) return;
   try {
     await apiKeres(`/admin/esemenyek/${id}`, { method: 'DELETE' });
-    adminAdatokBetoltese(); // Lista frissitese
+    adminAdatokBetoltese();
   } catch (hiba) {
-    alert(hiba.message);
+    alert('Hiba: ' + hiba.message);
   }
 }
 
-/** Admin adatok betoltese: esemenyek es felhasznalok */
 async function adminAdatokBetoltese() {
-  // Csak admin ferhet hozza
-  bejelentkezesKotelez();
-  const felhasznalo = jelenlegiFelhasznalo();
+  hitelesitesKotelező();
+  const felhasznalo = getJelenlegiFelhasznalo();
   if (felhasznalo?.szerepkor !== 'admin') {
     window.location.href = 'index.html';
     return;
   }
 
+  const allapotCimkek = { approved: '✓ Jóváhagyott', pending: '⏳ Függőben', rejected: '✗ Elutasított' };
+  const allapotOsztaly = { approved: 'siker', pending: 'figyelmeztes', rejected: 'hiba' };
+
   try {
-    // Parhuzamos adatbetoltes
     const [esemenyek, felhasznalok] = await Promise.all([
       apiKeres('/admin/esemenyek'),
       apiKeres('/admin/felhasznalok')
     ]);
 
-    // Fuggoben levo esemenyek
-    const fuggoben = esemenyek.filter(e => e.allapot === 'fuggoben');
-    document.getElementById('fuggoben-esemenyek').innerHTML = fuggoben.length
-      ? fuggoben.map(e => `
+    const fuggoBen = esemenyek.filter(e => e.status === 'pending');
+
+    document.getElementById('fuggoben-esemenyek').innerHTML = fuggoBen.length
+      ? fuggoBen.map(e => `
         <div class="esemeny-kartya">
-          <h3>${e.cim}</h3>
-          <p><strong>Helyszin:</strong> ${e.helyszin}</p>
-          <p><strong>Datum:</strong> ${new Date(e.datum).toLocaleString('hu-HU')}</p>
-          <p><strong>Szervezo:</strong> ${e.szervezo_neve}</p>
-          <button class="gomb gomb-primary" onclick="esemenyAllapotFrissites(${e.id}, 'jovahagyott')">Jovahagyas</button>
-          <button class="gomb gomb-masodlagos" onclick="esemenyAllapotFrissites(${e.id}, 'elutasitott')">Elutasitas</button>
+          <div class="esemeny-kartya-test">
+            <h3>${e.title}</h3>
+            <p><span class="cimke">📍 Helyszín:</span> ${e.location}</p>
+            <p><span class="cimke">📅 Dátum:</span> ${new Date(e.event_date).toLocaleString('hu-HU')}</p>
+            <p><span class="cimke">👤 Szervező:</span> ${e.szervezo_neve}</p>
+          </div>
+          <div class="esemeny-kartya-lab">
+            <button class="gomb gomb-elsdleges" onclick="esemenyAllapotFrissitese(${e.id}, 'approved')">✓ Jóváhagyás</button>
+            <button class="gomb gomb-masodlagos" onclick="esemenyAllapotFrissitese(${e.id}, 'rejected')">✗ Elutasítás</button>
+          </div>
         </div>
       `).join('')
-      : '<p class="ures-lista">Nincs fuggoben levo esemeny.</p>';
+      : '<p class="halvany">Nincs függőben lévő esemény.</p>';
 
-    // Osszes esemeny
     document.getElementById('osszes-esemeny').innerHTML = esemenyek.length
       ? esemenyek.map(e => `
         <div class="esemeny-kartya">
-          <h3>${e.cim}</h3>
-          <p><strong>Allapot:</strong> <span class="allapot-${e.allapot}">${e.allapot}</span></p>
-          <p><strong>Szervezo:</strong> ${e.szervezo_neve}</p>
-          <button class="gomb gomb-masodlagos" onclick="esemenyTorles(${e.id})">Torles</button>
+          <div class="esemeny-kartya-test">
+            <h3>${e.title}</h3>
+            <p><span class="cimke">📌 Státusz:</span> <span class="jelveny jelveny-${allapotOsztaly[e.status]}">${allapotCimkek[e.status] || e.status}</span></p>
+            <p><span class="cimke">👤 Szervező:</span> ${e.szervezo_neve}</p>
+            <p><span class="cimke">📅 Dátum:</span> ${new Date(e.event_date).toLocaleString('hu-HU')}</p>
+          </div>
+          <div class="esemeny-kartya-lab">
+            <button class="gomb gomb-veszelyes" onclick="esemenyTörlése(${e.id})">🗑 Törlés</button>
+          </div>
         </div>
       `).join('')
-      : '<p class="ures-lista">Nincs esemeny.</p>';
+      : '<p class="halvany">Nincs esemény.</p>';
 
-    // Felhasznalok listaja
     document.getElementById('felhasznalok-lista').innerHTML = felhasznalok.length
       ? felhasznalok.map(f => `
         <div class="esemeny-kartya">
-          <h3>${f.felhasznalonev}</h3>
-          <p>${f.email}</p>
-          <p><strong>Szerepkor:</strong> ${f.szerepkor}</p>
-          <p><strong>Regisztralt:</strong> ${new Date(f.letrehozva).toLocaleDateString('hu-HU')}</p>
+          <div class="esemeny-kartya-test">
+            <h3>${f.username}</h3>
+            <p>${f.email}</p>
+            <p><span class="cimke">Szerepkör:</span> ${f.role}</p>
+            <p><span class="cimke">Regisztrált:</span> ${new Date(f.created_at).toLocaleDateString('hu-HU')}</p>
+          </div>
         </div>
       `).join('')
-      : '<p class="ures-lista">Nincs felhasznalo.</p>';
+      : '<p class="halvany">Nincs felhasználó.</p>';
+
   } catch (hiba) {
-    document.getElementById('fuggoben-esemenyek').innerHTML =
-      `<div class="figyelmeztes hiba">${hiba.message}</div>`;
+    document.getElementById('fuggoben-esemenyek').innerHTML = `<div class="figyelmeztetés figyelmeztetés-hiba">Hiba: ${hiba.message}</div>`;
+    document.getElementById('osszes-esemeny').innerHTML = '';
+    document.getElementById('felhasznalok-lista').innerHTML = '';
   }
 }
 
-// Oldal betoltesekor: ful gombok beallitasa es adatok betoltese
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.ful-gomb').forEach(gomb => {
-    gomb.addEventListener('click', () => fulValtas(gomb.dataset.ful, gomb));
+  document.querySelectorAll('.tab-gomb').forEach(gomb => {
+    gomb.addEventListener('click', () => tabMutatasa(gomb.dataset.tab, gomb));
   });
   adminAdatokBetoltese();
 });

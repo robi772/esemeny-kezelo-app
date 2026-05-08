@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Új esemény - Eseménykezelő</title>
+  <title>Esemény szerkesztése - Eseménykezelő</title>
   <link rel="stylesheet" href="css/stilus.css">
 </head>
 <body>
@@ -11,22 +11,21 @@
     <div class="nav-marka"><a href="index.html">🎫 Eseménykezelő</a></div>
     <div class="nav-linkek">
       <a href="sajat-esemenyek.html" class="nav-link">← Saját események</a>
-      <button onclick="kilepes()" class="nav-link gomb-kilepes">Kilépés</button>
     </div>
   </nav>
   <main class="tartaly">
     <div class="urlap-kartya">
-      <h2>Új esemény létrehozása</h2>
+      <h2>Esemény szerkesztése</h2>
       <div id="hiba-uzenet" class="figyelmeztetés figyelmeztetés-hiba" style="display:none"></div>
       <div id="siker-uzenet" class="figyelmeztetés figyelmeztetés-siker" style="display:none"></div>
-      <form id="uj-esemeny-urlap">
+      <form id="szerkesztes-urlap">
         <div class="urlap-csoport">
           <label>Esemény neve *</label>
-          <input type="text" id="cim" required placeholder="Pl. Tech Meetup 2026">
+          <input type="text" id="cim" required>
         </div>
         <div class="urlap-csoport">
           <label>Leírás</label>
-          <textarea id="leiras" rows="4" placeholder="Az esemény részletes leírása..."></textarea>
+          <textarea id="leiras" rows="4"></textarea>
         </div>
         <div class="urlap-sor">
           <div class="urlap-csoport">
@@ -35,20 +34,20 @@
           </div>
           <div class="urlap-csoport">
             <label>Max. résztvevők</label>
-            <input type="number" id="max_resztvevok" min="1" placeholder="Korlátlan">
+            <input type="number" id="max_resztvevok" min="1">
           </div>
         </div>
         <div class="urlap-csoport">
           <label>Helyszín *</label>
-          <input type="text" id="helyszin" required placeholder="Pl. Budapest, Akvárium Klub">
+          <input type="text" id="helyszin" required>
         </div>
-        <button type="submit" class="gomb gomb-elsdleges">Esemény létrehozása</button>
+        <button type="submit" class="gomb gomb-elsdleges">Mentés</button>
         <a href="sajat-esemenyek.html" class="gomb gomb-masodlagos">Mégse</a>
       </form>
     </div>
   </main>
   <script src="js/api.js"></script>
   <script src="js/hitelesites.js"></script>
-  <script src="js/uj-esemeny.js"></script>
+  <script src="js/szerkesztes-esemeny.js"></script>
 </body>
 </html>

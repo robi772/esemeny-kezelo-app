@@ -1,47 +1,65 @@
-// Sajat esemenyek es jelentkezesek oldal betoltese
-async function sajatAdatokBetoltese() {
-  // Csak bejelentkezett felhasznalo erheti el
-  bejelentkezesKotelez();
-
-  const esemenyekDoboz = document.getElementById('sajat-esemenyek-lista');
-  const jelentkezesekDoboz = document.getElementById('sajat-jelentkezesek-lista');
-
+async function jelentkezesLemondasa(jelentkezesId) {
+  if (!confirm('Biztosan lemondod a jelentkezést?')) return;
   try {
-    // Parhuzamos adatbetoltes a gyorsabb megjelenes erdekeben
-    const [esemenyek, jelentkezesek] = await Promise.all([
-      apiKeres('/esemenyek/sajat/lista'),
-      apiKeres('/jelentkezesek/sajat')
-    ]);
-
-    // Sajat esemenyek megjeleniteseconst
-    esemenyekDoboz.innerHTML = esemenyek.length
-      ? esemenyek.map(e => `
-        <div class="esemeny-kartya">
-          <h3>${e.cim}</h3>
-          <p><strong>Datum:</strong> ${new Date(e.datum).toLocaleString('hu-HU')}</p>
-          <p><strong>Helyszin:</strong> ${e.helyszin}</p>
-          <p><strong>Allapot:</strong> <span class="allapot-${e.allapot}">${e.allapot}</span></p>
-          <p><strong>Jelentkezok:</strong> ${e.jelentkezok_szama}</p>
-          <a class="gomb gomb-masodlagos" href="esemeny-reszletek.html?id=${e.id}">Megtekintes</a>
-        </div>
-      `).join('')
-      : '<p class="ures-lista">Meg nincs sajat esemenyed.</p>';
-
-    // Jelentkezesek megjeleniteseconst
-    jelentkezesekDoboz.innerHTML = jelentkezesek.length
-      ? jelentkezesek.map(j => `
-        <div class="esemeny-kartya">
-          <h3>${j.cim}</h3>
-          <p><strong>Datum:</strong> ${new Date(j.datum).toLocaleString('hu-HU')}</p>
-          <p><strong>Helyszin:</strong> ${j.helyszin}</p>
-          <a class="gomb gomb-masodlagos" href="esemeny-reszletek.html?id=${j.esemeny_id}">Megtekintes</a>
-        </div>
-      `).join('')
-      : '<p class="ures-lista">Meg nincs jelentkezesed.</p>';
+    await apiKeres(`/jelentkezesek/${jelentkezesId}`, { method: 'DELETE' });
+    sajatEsemenyekBetoltese();
   } catch (hiba) {
-    esemenyekDoboz.innerHTML = `<div class="figyelmeztes hiba">${hiba.message}</div>`;
-    jelentkezesekDoboz.innerHTML = '';
+    alert('Hiba: ' + hiba.message);
   }
 }
 
-document.addEventListener('DOMContentLoaded', sajatAdatokBetoltese);
+async function sajatEsemenyekBetoltese() {
+  hitelesitesKotelező();
+
+  const esemenyekBox = document.getElementById('sajat-esemenyek-lista');
+  const jelentkezesekBox = document.getElementById('sajat-jelentkezesek-lista');
+
+  const allapotCimkek = { approved: '✓ Jóváhagyott', pending: '⏳ Függőben', rejected: '✗ Elutasított' };
+  const allapotOsztaly = { approved: 'siker', pending: 'figyelmeztes', rejected: 'hiba' };
+
+  try {
+    const [esemenyek, jelentkezesek] = await Promise.all([
+      apiKeres('/esemenyek/sajat'),
+      apiKeres('/jelentkezesek/sajat')
+    ]);
+
+    esemenyekBox.innerHTML = esemenyek.length
+      ? esemenyek.map(e => `
+        <div class="esemeny-kartya">
+          <div class="esemeny-kartya-test">
+            <h3>${e.title}</h3>
+            <p><span class="cimke">📅 Dátum:</span> ${new Date(e.event_date).toLocaleString('hu-HU')}</p>
+            <p><span class="cimke">📍 Helyszín:</span> ${e.location}</p>
+            <p><span class="cimke">📌 Státusz:</span> <span class="jelveny jelveny-${allapotOsztaly[e.status]}">${allapotCimkek[e.status] || e.status}</span></p>
+            <p><span class="cimke">👥 Jelentkezők:</span> ${e.jelentkezok_szama}${e.max_participants ? ' / ' + e.max_participants : ''}</p>
+          </div>
+          <div class="esemeny-kartya-lab">
+            <a class="gomb gomb-masodlagos" href="szerkesztes-esemeny.html?id=${e.id}">✎ Szerkesztés</a>
+            <a class="gomb gomb-masodlagos" href="esemeny-reszletek.html?id=${e.id}">Megtekintés</a>
+          </div>
+        </div>
+      `).join('')
+      : '<p class="halvany">Még nincs saját eseményed. <a href="uj-esemeny.html">Hozz létre egyet!</a></p>';
+
+    jelentkezesekBox.innerHTML = jelentkezesek.length
+      ? jelentkezesek.map(j => `
+        <div class="esemeny-kartya">
+          <div class="esemeny-kartya-test">
+            <h3>${j.cim}</h3>
+            <p><span class="cimke">📅 Dátum:</span> ${new Date(j.esemeny_datuma).toLocaleString('hu-HU')}</p>
+            <p><span class="cimke">📍 Helyszín:</span> ${j.helyszin}</p>
+          </div>
+          <div class="esemeny-kartya-lab">
+            <a class="gomb gomb-masodlagos" href="esemeny-reszletek.html?id=${j.event_id}">Megtekintés</a>
+            <button class="gomb gomb-veszelyes" onclick="jelentkezesLemondasa(${j.id})">Lemondás</button>
+          </div>
+        </div>
+      `).join('')
+      : '<p class="halvany">Még nincs jelentkezésed.</p>';
+  } catch (hiba) {
+    esemenyekBox.innerHTML = `<div class="figyelmeztetés figyelmeztetés-hiba">Hiba: ${hiba.message}</div>`;
+    jelentkezesekBox.innerHTML = '';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', sajatEsemenyekBetoltese);

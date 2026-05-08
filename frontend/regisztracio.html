@@ -4,21 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Regisztráció - Eseménykezelő</title>
-  <link rel="stylesheet" href="css/stilusok.css">
+  <link rel="stylesheet" href="css/stilus.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
+  <nav class="navigacio">
+    <div class="nav-marka"><a href="index.html">🎫 Eseménykezelő</a></div>
+    <div class="nav-linkek">
+      <a href="belepes.html" class="nav-link">← Vissza a belépéshez</a>
+    </div>
   </nav>
-  <main class="tartalom">
+  <main class="tartaly">
     <div class="auth-kartya">
       <h2>Regisztráció</h2>
-      <div id="hiba-uzenet" class="figyelmeztetés hiba" style="display:none"></div>
-      <div id="siker-uzenet" class="figyelmeztetés siker" style="display:none"></div>
+      <div id="hiba-uzenet" class="figyelmeztetés figyelmeztetés-hiba" style="display:none"></div>
+      <div id="siker-uzenet" class="figyelmeztetés figyelmeztetés-siker" style="display:none"></div>
       <form id="regisztracio-urlap">
         <div class="urlap-csoport">
           <label>Felhasználónév</label>
-          <input type="text" id="felhasznalonev" required placeholder="Felhasználónév">
+          <input type="text" id="felhasznalonev" required placeholder="pl. kovacs.janos">
         </div>
         <div class="urlap-csoport">
           <label>E-mail cím</label>
@@ -26,9 +29,9 @@
         </div>
         <div class="urlap-csoport">
           <label>Jelszó</label>
-          <input type="password" id="jelszo" required placeholder="Min. 6 karakter" minlength="6">
+          <input type="password" id="jelszo" required placeholder="Min. 6 karakter">
         </div>
-        <button type="submit" class="gomb gomb-primary gomb-teljes">Regisztráció</button>
+        <button type="submit" class="gomb gomb-elsdleges gomb-teljes">Regisztráció</button>
       </form>
       <p class="auth-link">Már van fiókod? <a href="belepes.html">Lépj be!</a></p>
     </div>

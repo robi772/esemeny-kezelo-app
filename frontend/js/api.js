@@ -1,10 +1,5 @@
-// Alap API URL - minden kérés ezen keresztül megy
 const API_ALAP = '/api';
 
-/**
- * Általános API kérés küldő függvény
- * Automatikusan hozzáadja a JWT tokent, ha rendelkezésre áll
- */
 async function apiKeres(vegpont, beallitasok = {}) {
   const token = localStorage.getItem('token');
 
@@ -13,7 +8,6 @@ async function apiKeres(vegpont, beallitasok = {}) {
     ...(beallitasok.headers || {})
   };
 
-  // Token hozzáadása, ha be van jelentkezve
   if (token) {
     fejlecek.Authorization = `Bearer ${token}`;
   }
@@ -26,7 +20,7 @@ async function apiKeres(vegpont, beallitasok = {}) {
   const adatok = await valasz.json().catch(() => ({}));
 
   if (!valasz.ok) {
-    throw new Error(adatok.hiba || 'Ismeretlen hiba történt');
+    throw new Error(adatok.hiba || adatok.error || 'Ismeretlen hiba');
   }
 
   return adatok;

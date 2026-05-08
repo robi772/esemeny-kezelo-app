@@ -1,10 +1,12 @@
-// Regisztracis urlap kezelo
 document.getElementById('regisztracio-urlap')?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const hibaDoboZ = document.getElementById('hiba-uzenet');
-  const sikerDoboz = document.getElementById('siker-uzenet');
-  hibaDoboZ.style.display = 'none';
-  sikerDoboz.style.display = 'none';
+  const hibaBox = document.getElementById('hiba-uzenet');
+  const sikerBox = document.getElementById('siker-uzenet');
+  const kuldjGomb = e.target.querySelector('button[type=submit]');
+  hibaBox.style.display = 'none';
+  sikerBox.style.display = 'none';
+  kuldjGomb.textContent = 'Regisztráció...';
+  kuldjGomb.disabled = true;
 
   try {
     const adatok = {
@@ -13,20 +15,22 @@ document.getElementById('regisztracio-urlap')?.addEventListener('submit', async 
       jelszo: document.getElementById('jelszo').value
     };
 
-    // Regisztracios keres kuldese
     const eredmeny = await apiKeres('/hitelesites/regisztracio', {
       method: 'POST',
       body: JSON.stringify(adatok)
     });
 
-    // Automatikus bejelentkezes regisztracio utan
     localStorage.setItem('token', eredmeny.token);
     localStorage.setItem('felhasznalo', JSON.stringify(eredmeny.felhasznalo));
-    sikerDoboz.style.display = 'block';
-    sikerDoboz.textContent = 'Sikeres regisztracio! Atiranyitas...';
-    setTimeout(() => window.location.href = 'index.html', 800);
+    sikerBox.style.display = 'block';
+    sikerBox.textContent = 'Sikeres regisztráció! Átirányítás...';
+    setTimeout(() => window.location.href = 'index.html', 900);
   } catch (hiba) {
-    hibaDoboZ.style.display = 'block';
-    hibaDoboZ.textContent = hiba.message;
+    hibaBox.style.display = 'block';
+    hibaBox.textContent = hiba.message === 'Ez az e-mail cím már regisztrált'
+      ? 'Ez az e-mail cím már regisztrált.'
+      : hiba.message;
+    kuldjGomb.textContent = 'Regisztráció';
+    kuldjGomb.disabled = false;
   }
 });

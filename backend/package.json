@@ -1,12 +1,12 @@
 {
   "name": "esemeny-kezelo-backend",
   "version": "1.0.0",
-  "description": "Eseménykezelő Backend API",
+  "description": "Eseménykezelő alkalmazás backend",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest --runInBand"
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -18,7 +18,10 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

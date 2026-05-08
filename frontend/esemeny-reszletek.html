@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Esemény részletei - Eseménykezelő</title>
-  <link rel="stylesheet" href="css/stilusok.css">
+  <link rel="stylesheet" href="css/stilus.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo"><a href="index.html">🎫 Eseménykezelő</a></div>
-    <div class="nav-linkek">
-      <a href="index.html" class="nav-link">← Vissza az eseményekhez</a>
+  <nav class="navigacio">
+    <div class="nav-marka"><a href="index.html">🎫 Eseménykezelő</a></div>
+    <div class="nav-linkek" id="nav-hitelesites">
+      <a href="belepes.html" class="nav-link">Belépés</a>
+    </div>
+    <div class="nav-linkek" id="nav-felhasznalo" style="display:none">
+      <a href="sajat-esemenyek.html" class="nav-link">Saját események</a>
+      <button onclick="kilepes()" class="nav-link gomb-kilepes">Kilépés</button>
     </div>
   </nav>
-  <main class="tartalom">
-    <!-- Esemény részletei - dinamikusan töltődik -->
+  <main class="tartaly">
     <div id="esemeny-reszletek" class="esemeny-reszlet-kartya">
       <div class="betoltes">Betöltés...</div>
     </div>
