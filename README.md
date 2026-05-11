@@ -1,21 +1,25 @@
 # 🎫 Eseménykezelő Alkalmazás
 
-Egy teljes eseménykezelő webalkalmazás Node.js backenddel, vanilla JavaScript frontenddel és MySQL adatbázissal. Docker-alapú deploymenttel.
+Egy eseménykezelő webalkalmazás Node.js backenddel,  JavaScript frontenddel és MySQL adatbázissal. Docker-alapú deploymenttel.
 
-![Verzió](https://img.shields.io/badge/verzió-1.0.0-blue.svg) ![Licence](https://img.shields.io/badge/licence-MIT-green.svg) ![Node](https://img.shields.io/badge/node-%3E%3D18-green.svg)
 
 ---
 
 ## 📌 Tartalomjegyzék
 
-- [Funkciók](#funkciók)
-- [Rendszerigények](#rendszerigények)
-- [Indítás](#indítás)
-  - [Dockerrel](#dockerrel)
-  - [Kézi fejlesztéshez](#kézi-fejlesztéshez)
-- [API dokumentáció](#api-dokumentáció)
-- [Projekt struktúra](#projekt-struktúra)
-- [Tesztelés](#tesztelés)
+- [🎫 Eseménykezelő Alkalmazás](#-eseménykezelő-alkalmazás)
+  - [📌 Tartalomjegyzék](#-tartalomjegyzék)
+  - [🚀 Funkciók](#-funkciók)
+  - [📋 Rendszerigények](#-rendszerigények)
+  - [⚡ Indítás](#-indítás)
+    - [Dockerrel](#dockerrel)
+  - [📂 API dokumentáció](#-api-dokumentáció)
+    - [Hitelesítés](#hitelesítés)
+    - [Események](#események)
+    - [Jelentkezések](#jelentkezések)
+    - [Admin](#admin)
+  - [📁 Projekt struktúra](#-projekt-struktúra)
+  - [🧪 Tesztelés](#-tesztelés)
 
 ---
 
@@ -28,7 +32,6 @@ Egy teljes eseménykezelő webalkalmazás Node.js backenddel, vanilla JavaScript
 - **Saját események** panel – saját események és jelentkezések kezelése
 - **Esemény szerkesztése** – adatok módosítása
 - **Admin felület** – jóváhagyás, elutasítás, törlés, felhasználók listája
-- **Docker-alapú deployment** ad hoc indítással
 
 ---
 
@@ -44,20 +47,13 @@ Egy teljes eseménykezelő webalkalmazás Node.js backenddel, vanilla JavaScript
 
 ### Dockerrel
 
-Ez egyúttal a leggyorsabb módszer.
 
-1. Klónozd a repót:
-   ```bash
-   git clone https://github.com/robi772/esemeny-kezelo-app.git
-   cd esemeny-kezelo-app
-   ```
-
-2. Indítsd Dockerrel:
+1. Indítsd Dockerrel:
    ```bash
    docker compose up --build
    ```
 
-3. Nyisd meg a böngészőben:
+2. Nyisd meg a böngészőben:
    ```
    http://localhost:8080
    ```
@@ -66,27 +62,6 @@ Ez egyúttal a leggyorsabb módszer.
 > - Admin: `admin@esemenykezelo.local` / `password`
 > - Szervező: `szervezo@esemenykezelo.local` / `password`
 
-### Kézi fejlesztéshez
-
-1. Telepítsd a függőségeket:
-   ```bash
-   cd backend && npm install
-   ```
-
-2. Hozz létre `.env` fájlt:
-   ```bash
-   cp backend/.env.example backend/.env
-   # Szerkeszd meg az adatbázis adatokat szükség szerint
-   ```
-
-3. Indítsd a backendet:
-   ```bash
-   cd backend && npm run dev
-   ```
-
-4. Nyisd meg a frontendet egy webszerverrel (pl. Live Server VS Code bővítményben).
-
----
 
 ## 📂 API dokumentáció
 
@@ -191,16 +166,3 @@ npm test
 
 ---
 
-## 📅 Fejlesztési terv
-
-- [ ] E-mail értesítés jelentkezésután
-- [ ] Esemény szűrés / kategória
-- [ ] Felhasználói profil szerkesztése
-- [ ] Admin statisztikai dashboard
-- [ ] Responsive mobil nézet fejlesztése
-
----
-
-## 📝 Licenc
-
-[MIT](LICENSE) Copyright © 2026
