@@ -53,7 +53,7 @@ CREATE INDEX idx_jelentkezesek_esemeny ON registrations(event_id);
 INSERT INTO users (username, email, password_hash, role) VALUES (
   'admin',
   'admin@esemenykezelo.local',
-  '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.',
+  '$2a$10$f8vjYNSiJhHiRJu4mFZJ../auxvLT10GPd9a4lcqnxVRulkHHBfgO',
   'admin'
 );
 
@@ -61,7 +61,7 @@ INSERT INTO users (username, email, password_hash, role) VALUES (
 INSERT INTO users (username, email, password_hash, role) VALUES (
   'demo_szervezo',
   'szervezo@esemenykezelo.local',
-  '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.',
+  '$2a$10$f8vjYNSiJhHiRJu4mFZJ../auxvLT10GPd9a4lcqnxVRulkHHBfgO',
   'organizer'
 );
 
